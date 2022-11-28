@@ -1,0 +1,311 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100;200;300;400;500;600;700;800&display=swap');
+
+:root {
+  --white: #F5F5F5;
+  --gray: #EAE9E8;
+  --gray-darker: #D1D0CF;
+  --black: #333022;
+  --black-lighter: #33302290;
+  --color: #F0A846;
+  --color-light: #FACE93;
+}
+
+*,
+*:before,
+*:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  overscroll-behavior: none;
+}
+
+body {
+  overscroll-behavior: none;
+  background-color: var(--white);
+  font-family: 'JetBrains Mono', sans-serif;
+  color: var(--black);
+
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+main {
+  width: 100%;
+}
+
+h1 {
+  width: 100%;
+  padding: 0 0 40px 0;
+  text-align: center;
+  font-size: clamp(18px, 4vw, 24px);
+  text-transform: uppercase;
+  color: var(--black);
+  font-weight: 800;
+}
+
+.app {
+  width: 90%;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+
+/* OUTPUT FOR PASSWORD GENERATED */
+.generated_password {
+  width: 100%;
+  margin: 0 0 20px 0;
+  padding: 15px 20px;
+  background-color: var(--gray);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.generated_password_btn {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  /* cursor: not-allowed; */
+}
+.generated_password_btn svg {
+  width: 21px;
+}
+.generated_password_btn svg path {
+  fill: var(--black);
+}
+
+
+/* CONTAINER OF ALL RULES COMPONENTS */
+.password_rules {
+  width: 100%;
+  padding: 10px 20px 15px 20px;
+  background-color: var(--gray);
+}
+
+
+/* RULES COMPONENT RulesLength.jsx */
+.rules_length_output {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 0 20px 0;
+}
+.rules_length_output_title {
+  font-size: 16px;
+  text-transform: uppercase;
+}
+.rules_length_output_result {
+  font-size: clamp(24px, 12vw, 32px);
+  font-weight: 800;
+  color: var(--color);
+}
+
+.rules_length_input {
+  width: 100%;
+}
+
+.rules_length_input input {
+  width: 100%;
+}
+
+/*Range Reset*/
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  cursor: pointer;
+  width: 100%;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+/* Removes default focus */
+input[type="range"]:focus {
+ outline: none;
+}
+
+/***** Chrome, Safari, Opera and Edge Chromium styles *****/
+/* slider track */
+input[type="range"]::-webkit-slider-runnable-track {
+  background-color: #FFFFFF;
+  height: 1rem;
+}
+/* slider thumb */
+input[type="range"]::-webkit-slider-thumb {
+ -webkit-appearance: none;
+  appearance: none;
+  background-color: var(--color);
+  height: 1rem;
+  width: 1rem;
+  border-radius: 50%;
+  box-shadow: -407px 0 0 400px var(--color-light);
+}
+
+/******** Firefox styles ********/
+/* slider track */
+input[type="range"]::-moz-range-track {
+  background-color: #FFFFFF;
+  border-radius: 0.5rem;
+  height: 0.5rem;
+}
+
+/* slider thumb */
+input[type="range"]::-moz-range-thumb {
+  border: none;
+  background-color: var(--color);
+  height: 1.5rem;
+  width: 1.5rem;
+  border-radius: 50%;
+}
+
+
+/* RULES COMPONENT RulesIncludes.jsx */
+.rules_includes {
+  width: 100%;
+  margin: 30px 0;
+}
+.rules_includes_wrapper {
+  margin: 15px 0;
+  display: flex;
+  align-items: center;
+}
+
+input[type=checkbox] {
+  position: relative;
+  cursor: pointer;
+  margin-right: 10px;
+  width: 18px;
+  height: 18px;
+}
+input[type=checkbox]:before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  top: 0;
+  left: 0;
+  border: 1.5px solid var(--black);
+  background-color: white;
+  transition: border .4s ease-in-out, background-color .4s ease-in-out;
+}
+input[type=checkbox]:checked:after {
+  content: "";
+  display: block;
+  width: 5px;
+  height: 10px;
+  border: solid var(--white);
+  border-width: 0 2px 2px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+  position: absolute;
+  top: 3px;
+  left: 6.5px;
+}
+input[type=checkbox]:hover:before {
+  border: 1.5px solid var(--color);
+}
+input[type=checkbox]:checked:before {
+  border: 1.5px solid var(--color);
+  background-color: var(--color);
+}
+
+.rules_includes_wrapper label {
+  text-transform: uppercase;
+  font-size: 15px;
+  font-weight: 400;
+  transition: color .4s ease-in-out;
+  cursor: pointer;
+}
+input[type=checkbox]:checked + label {
+  color: var(--color);
+}
+
+
+/* RULES COMPONENT RulesStrength.jsx */
+.rules_strength {
+  width: 100%;
+  margin: 30px auto;
+  padding: 25px 10px;
+  border: 1px solid var(--black);
+  color: var(--black);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.rules_strength_title {
+  font-size: 15px;
+  text-transform: uppercase;
+  color: var(--black);
+}
+
+.rules_strength_wrapper {
+  display: flex;
+  align-items: center;
+}
+.rules_strength_wrapper p {
+  margin: 0 10px 0 0;
+  font-size: 14px;
+  font-weight: 200;
+  text-transform: uppercase;
+}
+.rules_strength_display span {
+  padding: 0px 4px;
+  border: 1px solid var(--black);
+  margin: 0 3px;
+  transition: background .3s ease-in-out, border .3s ease-in-out;
+}
+
+/* BUTTON TO GENERATE PASSWORD */
+.password_rules_generate {
+  width: 100%;
+  max-width: 400px;
+  display: block;
+  margin: 0 auto;
+  position: relative;
+  outline: transparent;
+  border: 0px solid transparent;
+  padding: 15px;
+  background: var(--black-lighter);
+  color: var(--white);
+  cursor: pointer;
+  z-index: 0;
+}
+.password_rules_generate::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 100%;
+  bottom: 0;
+  left: 0;
+  background-color: var(--color);
+  transform-origin: bottom right;
+  transition: transform .4s cubic-bezier(0.86, 0, 0.07, 1);
+  z-index: -1;
+}
+.password_rules_generate:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+.password_rules_generate span {
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 16px;
+  padding-right: 10px;
+  z-index: 2;
+  transition: color .4s ease-in-out;
+}
+.password_rules_generate svg {
+  width: 12px;
+  z-index: 2;
+}
+.password_rules_generate svg path {
+  fill: var(--white);
+}
